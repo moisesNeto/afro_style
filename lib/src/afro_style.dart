@@ -1,9 +1,12 @@
-import 'package:afro_style/src/home/home.dart';
+import 'package:afro_style/src/home/home_screen.dart';
+import 'package:afro_style/src/menu/menu_afro_style.dart';
+import 'package:afro_style/src/menu/tab_config.dart';
+import 'package:afro_style/src/menu/tab_provider.dart';
 import 'package:flutter/material.dart';
 
 class AfroStyle extends StatelessWidget {
-  const AfroStyle({super.key});
-
+  AfroStyle({super.key});
+  final List<TabConfig> tabs = TabProvider(tabs: []).getTabs();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +21,7 @@ class AfroStyle extends StatelessWidget {
           onSecondaryContainer: Color(0xffffffff),
         ),
       ),
-      home: const Home(),
+      home: HomeScreen(tabs: MenuAfroStyle().getTabProvider()),
     );
   }
 }
